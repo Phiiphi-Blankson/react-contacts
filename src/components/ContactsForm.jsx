@@ -39,7 +39,7 @@ function ContactsForm(props) {
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Enter your name</Form.Label>
+        <Form.Label>Name of User</Form.Label>
         <Form.Control
           onChange={handleNameChange}
           value={name}

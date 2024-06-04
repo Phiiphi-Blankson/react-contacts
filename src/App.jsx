@@ -44,6 +44,24 @@ function App() {
   const addNewUser = (newUser) => {
     setUser([...user, newUser]);
   };
+
+  const editUser = (userId, newUserDetails) => {
+    let arr = user.map((user) => {
+      if (user.id === userId) {
+        return newUserDetails;
+      } else {
+        return user;
+      }
+    });
+    setUser(arr);
+  };
+
+  const deleteUser = (userId) => {
+    let deletedUser = user.filter((user) => {
+      if (user.id !== userId) return user;
+    });
+    setUser(deletedUser);
+  };
   // addNewUser({ name: 'Sadik', phoneNumber: '0302395449' });
   return (
     <Container>
@@ -52,7 +70,11 @@ function App() {
           <ContactsForm addUser={addNewUser} />
         </Col>
         <Col>
-          <ContactList user={user} />
+          <ContactList
+            editUser={editUser}
+            deleteUser={deleteUser}
+            user={user}
+          />
         </Col>
       </Row>
     </Container>

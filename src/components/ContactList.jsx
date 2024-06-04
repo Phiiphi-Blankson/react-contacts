@@ -1,13 +1,18 @@
 /** @format */
-
-import React from 'react';
 import Contacts from './Contacts';
 
 function ContactList(props) {
   return (
     <>
       {props.user.map((user) => {
-        return <Contacts user={user} key={user.id} />;
+        return (
+          <Contacts
+            user={user}
+            key={user.id}
+            editUser={props.editUser}
+            deleteUser={props.deleteUser}
+          />
+        );
       })}
     </>
   );
